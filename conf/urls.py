@@ -16,6 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app_example.views import AboutView
+from app_example.views import FirstView
+from app_example.views import MainView
+from app_example.views import SecondView
+from app_example.views import StudentView
+from app_example.views import ThirdView
+from app_example.views import WelcomeView
+
 urlpatterns = [
+    path('', MainView.as_view()),
+    path('students/<int:student_id>/', StudentView.as_view()),
+    path('welcome/', WelcomeView.as_view()),
+    path('first/', FirstView.as_view()),
+    path('about/', AboutView.as_view()),
+    path('second/', SecondView.as_view()),
+    path('third/', ThirdView.as_view()),
     path('admin/', admin.site.urls),
 ]
